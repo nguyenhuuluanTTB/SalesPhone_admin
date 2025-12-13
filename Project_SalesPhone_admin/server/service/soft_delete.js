@@ -6,7 +6,7 @@ async function soft_delete_product(id_product){
         const result = await sequelize.query(
             `
                 UPDATE product
-                    SET is_del_phone = 1
+                    SET is_del_phone = 1 - is_del_phone
                 WHERE id_product = ?
             `,
             {
@@ -15,7 +15,7 @@ async function soft_delete_product(id_product){
             }
         );
 
-        return {success: true, message: 'Delete product successfully'};
+        return {success: true, message: 'Delete product successfully', result};
     }
     catch(err){
         console.error('Error while delete product: ', err);

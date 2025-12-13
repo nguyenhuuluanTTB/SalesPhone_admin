@@ -12,7 +12,8 @@ async function getProduct_TruyVan () {
                     i.quantity,
                     i.status,
                     j.name_promotion,
-                    i.rate
+                    i.rate,
+                    i.is_del_phone
                 from product as i
                 left join promotion as j  on i.id_promotion = j.id_promotion
             `,
